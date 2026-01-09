@@ -33,8 +33,15 @@ pipeline {
                     test -f build/index.html
                     npm ci
                     npm test
+
                 '''
             }
+        }
+    }
+
+    post {
+        always {
+            junit 'test-results/junit.xml'
         }
     }
 }
